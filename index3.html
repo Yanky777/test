@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybierz swoje ulubione aktywności i jedzenie</title>
+    <style>
+        body {
+            background-color: #fde4e4; 
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 20px;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #ff9f9f; 
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff7e7e;
+        }
+        
+        label img {
+            width: 200px;
+        }
+        div.przerwa{
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 20px;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wybierz co chcesz robić</h1>
+    </header>
+    
+    <section>
+        <form id="wyboryForm">
+            <label>
+                <input type="checkbox" name="element" value="spacer"> 
+                <img src="1/spacer.jpg">
+            </label>
+            <label>
+                <input type="checkbox" name="element" value="kino"> 
+                <img src="1/kino.jpg">
+            </label>
+            <label>
+                <input type="checkbox" name="element" value="kolacja"> 
+                <img src="1/kolacja.jpg">
+            </label>
+            <label>
+                <input type="checkbox" name="element" value="Netflix"> 
+                <img src="1/netflix.jpg">
+            </label>
+
+
+
+
+            <div class="przerwa">
+                <h2>Teraz wybierz jedzenie</h2>
+            </div>
+
+
+            <label>
+                <input type="checkbox" name="element" value="pizza"> 
+                <img src="1/pizza.jpg">
+            </label>
+            <label>
+                <input type="checkbox" name="element" value="sushi"> 
+                <img src="1/sushi.jpg">
+            </label>
+            <label>
+                <input type="checkbox" name="element" value="burger"> 
+                <img src="1/burger.jpg">
+            </label>
+            <label>
+                <input type="checkbox" name="element" value="makaron"> 
+                <img src="1/makaron.jpg">
+            </label>
+
+            <button type="button" onclick="pokazElementy()">Przejdź dalej</button>
+        </form>
+    </section>
+
+    <script>
+        function pokazElementy() {
+            const elementy = Array.from(document.querySelectorAll('input[name="element"]:checked')).map(input => input.value);
+
+            // Przekierowanie do kolejnej strony z przekazaniem parametru w adresie URL
+            window.location.href = `index4.html?elementy=${encodeURIComponent(JSON.stringify(elementy))}`;
+        }
+    </script>
+</body>
+</html>

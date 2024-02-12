@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podsumowanie wybranych aktywności i jedzenia</title>
+    <style>
+        body {
+            background-color: #fde4e4; 
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 20px;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        section {
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        div.stopka{
+            width: 100%;
+            height: 100px;
+            background-color: #ff6b6b;
+        }
+        div.brumik{
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 20px;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+   
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Wybrane opcje:</h1>
+        </div>
+        <div>
+            <h2>(zrób zdjecie i wyslij do mnie)</h2>
+        </div>
+        
+    </header>
+    
+    <section id="wybraneElementy"></section>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const elementyString = urlParams.get('elementy');
+
+        const wybraneElementyDiv = document.getElementById('wybraneElementy');
+
+        function wyswietlElementy(elementy) {
+            elementy.forEach(element => {
+                const obraz = document.createElement('img');
+                obraz.src = `1/${element}.jpg`; 
+                obraz.alt = `Obraz ${element}`;
+
+                wybraneElementyDiv.appendChild(obraz);
+            });
+        }
+
+        if (elementyString) {
+            const elementy = JSON.parse(decodeURIComponent(elementyString));
+            wyswietlElementy(elementy);
+        }
+    </script>
+
+    <div class="stopka">
+
+    </div>
+    <div class="rose">
+        <img src="1/rose.gif">
+    </div>
+
+    <div class="brumik">KOCHAM CIE BRUMIK!!!!</div>
+</body>
+</html>
